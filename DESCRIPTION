@@ -1,0 +1,15 @@
+Package: ASRjson
+Type: Package
+Title: AlphaSimR simulations from json
+Version: 0.1.0.9999
+Date: 2021-06-22
+Authors@R: c(person("Marlee", "Labroo", role = c("aut")),
+    person("Chris", "Gaynor", role = c("aut", "cre"), 
+    email = "gaynor.robert@hotmail.com", 
+    comment = c(ORCID = "0000-0003-0558-6656")))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: AlphaSimR, rjson
+RoxygenNote: 7.1.1
