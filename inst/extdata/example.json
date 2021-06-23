@@ -1,0 +1,129 @@
+{
+  "Nodes": [
+    {
+      "id": "NodeA",
+      "Number of Individuals": "100",
+      "x": -265.6666717529297,
+      "y": -285.5833282470703,
+      "individualsVar": "100",
+      "Type": "Yield trial",
+      "locationsVar": "1",
+      "replicationsVar": "1",
+      "seasonsVar": "1",
+      "label": "NodeA (100)",
+      "color": "#9acef4",
+      "title": "NodeA: 100 entries"
+    },
+    {
+      "id": "NodeB",
+      "Number of Individuals": "1000",
+      "x": -11,
+      "y": -196,
+      "individualsVar": "1000",
+      "Type": "Increase",
+      "locationsVar": "1",
+      "replicationsVar": "1",
+      "seasonsVar": "10",
+      "label": "NodeB (1000)",
+      "color": "#f29595",
+      "title": "NodeB: 1000 entries"
+    },
+    {
+      "id": "Selected",
+      "Number of Individuals": "8",
+      "x": -178,
+      "y": -50,
+      "individualsVar": "8",
+      "Type": "Yield trial",
+      "locationsVar": "2",
+      "replicationsVar": "2",
+      "seasonsVar": "2",
+      "label": "Selected (8)",
+      "color": "#9acef4",
+      "title": "Selected: 8 entries"
+    },
+    {
+      "id": "CrossNode",
+      "Number of Individuals": "20",
+      "x": -420,
+      "y": -129,
+      "individualsVar": "20",
+      "Type": "Crossing block",
+      "seasonsVar": "1",
+      "label": "CrossNode (20)",
+      "color": "#ddd264",
+      "title": "CrossNode: 20 entries"
+    }
+  ],
+  "Edges": [
+    {
+      "from": "NodeA",
+      "to": "NodeB",
+      "Breeding Type": "Cloning",
+      "id": "NodeA_NodeB",
+      "useVar": [],
+      "color": {
+        "color": "#9932CC",
+        "highlight": "#9932CC",
+        "hover": "#9932CC"
+      },
+      "title": "Cloning"
+    },
+    {
+      "from": "NodeB",
+      "to": "Selected",
+      "Breeding Type": "Selection",
+      "id": "NodeB_Selected",
+      "useVar": [],
+      "Unit": "Between Family",
+      "Criteria": "Phenotype",
+      "Trait": "Single Trait",
+      "betweenVar": "5",
+      "color": {
+        "color": "#7bbb44",
+        "highlight": "#7bbb44",
+        "hover": "#7bbb44"
+      },
+      "title": "Selection Type: undefined"
+    },
+    {
+      "from": "Selected",
+      "to": "CrossNode",
+      "Breeding Type": "Crossing",
+      "id": "Selected_CrossNode",
+      "useVar": [],
+      "crossesVar": "30",
+      "progenyVar": "1",
+      "color": {
+        "color": "#ddd264",
+        "highlight": "#ddd264",
+        "hover": "#ddd264"
+      },
+      "title": "Crossing"
+    }
+  ],
+  "Genome": {
+    "Chromosomes": "7",
+    "Genetic Length": "8",
+    "Seasons": "O-S"
+  },
+  "Traits": [
+    {
+      "Trait Number": 1,
+      "QTL": "89",
+      "Mean": "89",
+      "Genetic Variance": "8",
+      "GxE Variance": "8",
+      "Error Variance": "9",
+      "Plot": "0-",
+      "Dominance": true,
+      "Mean Degree": "9",
+      "Variance Degree": "8",
+      "Epistasis": true,
+      "Relative Value": "89",
+      "Index": "",
+      "Trait Weight": ""
+    }
+  ],
+  "Selection Indices": []
+}

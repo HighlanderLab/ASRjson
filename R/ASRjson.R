@@ -56,7 +56,7 @@ buildSkeleton = function(rjson){
 #' @export
 ASRjson = function(json, output){
   # Convert json to an R object
-  rjson = fromJSON(json)
+  rjson = fromJSON(file=json)
 
   # Check validity of simulation
   checkSim(rjson)
@@ -83,7 +83,7 @@ ASRjson = function(json, output){
 # eval(actionList)
 # numList
 
-
-
+# json = system.file("extdata", "example.json", package = "ASRjson")
+# rjson = fromJSON(file=json)
 
 
