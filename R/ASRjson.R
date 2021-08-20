@@ -31,6 +31,11 @@ json2script = function(json, output){
   # Convert json to an R object
   rjson = fromJSON(file=json)
 
+  # Hard coded values
+  # These can be removed as hard coded values by adding input to the GUI or this function
+  nRep = 10 # Number of replications
+  nYears = 20 # Number of years for modeling breeding program
+
   # Copy data from edges and nodes for easier access
   Nodes = rjson$Nodes
   nodeType = sapply(Nodes, function(x) x$Type)
@@ -73,12 +78,12 @@ json2script = function(json, output){
              "")
 
   # Create objects for saving output
-  # TO DO
+
+  #### TO DO ####
 
   # Add loop for replications
-  # Hard coded to 10 reps at the moment
   script = c(script,
-             "for(REP in 1:10){","")
+             "for(REP in 1:", nRep, "){","")
 
   # Determine total number of sites needed
   nSites = sapply(rjson$Traits, function(x) x$QTL)
@@ -101,12 +106,61 @@ json2script = function(json, output){
              "")
 
   # Set simulation parameters
+  script = c(script,
+             "SP = SimParam$new(founderPop)")
+
+  # Create placeholder for varE that will grow when looping through traits
+  varE = character()
+
+  # Write script for adding traits by looping through traits one at a time
+  # We are modeling traits as always having all types of effects
+  # This incurs a performance penalty when the effects aren't need, but greatly
+  # simplifies the code.
+  for(jsonTrait in rjson$Traits){
+    # Add addTrait code to script
+    script = c(script,
+               paste0("SP$addTraitADEG(",
+                      jsonTrait$QTL, ", ",
+                      "mean=", jsonTrait$Mean, ", ",
+                      "var=", jsonTrait$`Genetic Variance`, ", ",
+                      "varGxE=", jsonTrait$`GxE Variance`, ", ",
+                      "meanDD=", jsonTrait$`Mean Degree`, ", ",
+                      "varDD=", jsonTrait$`Variance Degree`, ", ",
+                      "relAA=", jsonTrait$`Relative value`, ", ",
+                      "useVarA=FALSE)")
+    )
+
+    # Track varE
+    varE = c(varE, jsonTrait$`Error Variance`)
+  }
+
+  # Add varE to simulation parameters
+  script = c(script,
+             "SP$setVarE(varE=c(",
+             paste(varE,collapse=","),
+             "))")
+
+  # Sort breeding stages
+
+  #### TO DO ####
 
   # Initialize breeding program
 
-  # Cycle through years
+  #### To DO ####
 
-  # Still working
-  #writeLines(script, output)
+  # Cycle through years
+  script = c(script,
+             paste0("for(YEAR in 1:", nYears, "){"))
+
+  #### To DO ####
+
+  # End year loop
+  script = c(script, "}")
+
+  # End replication loop
+  script = c(script, "}")
+
+  # Write out script
+  writeLines(script, output)
 }
 
