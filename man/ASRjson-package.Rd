@@ -6,9 +6,9 @@
 \alias{ASRjson-package}
 \title{ASRjson: AlphaSimR simulations from json}
 \description{
-Functions for automating simulation runs designed in a GUI.
-The GUI outputs a json file that the functions in this library
-will use to run an AlphaSimR simulation.
+Automated script writing using a GUI. The GUI outputs
+a json file that gets used to construct an AlphaSimR
+simulation script.
 }
 \author{
 \strong{Maintainer}: Chris Gaynor \email{gaynor.robert@hotmail.com} (\href{https://orcid.org/0000-0003-0558-6656}{ORCID})

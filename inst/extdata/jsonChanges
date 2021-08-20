@@ -1,0 +1,12 @@
+Removed the concept of seasons
+  This can be reintroduced later.
+  Will require additional thought to implement correctly.
+
+Nodes now serve as place holders for stage of breeding program
+  Only contain phenotyping information: reps, locs
+  Can dynamic lookup be used for number in label?
+
+Edges now contain number of individuals
+  This allow multiple edges to feed crossing block
+
+
